@@ -19,8 +19,10 @@ class CreateTenantsTable extends Migration
             $table->string('id')->primary();
 
             // your custom columns may go here
+            $table->string('company', 255)->nullable();
             $table->string('name', 255);
             $table->string('email', 255);
+            $table->tinyInteger('status')->default(1)->comment('1 = active, 0 = inactive');
             $table->string('password', 255);
 
             $table->timestamps();
