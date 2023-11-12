@@ -1,8 +1,8 @@
 <x-tenant-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Tenant Create') }}
-            <x-tenant-button href="{{ route('tenants.index') }}" class="float-right">Tenants List</x-tenant-button>
+            {{ __('User Create') }}
+            <x-tenant-button href="{{ route('users.index') }}" class="float-right">Users List</x-tenant-button>
         </h2>
     </x-slot>
 
@@ -13,7 +13,7 @@
 
 
 
-                    <form method="POST" action="{{ route('tenants.store') }}">
+                    <form method="POST" action="{{ route('users.store') }}">
                         @csrf
 
                         <!-- Name -->
@@ -22,15 +22,6 @@
                             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name"
                                 :value="old('name')" required autofocus autocomplete="name" />
                             <x-input-error :messages="$errors->get('name')" class="mt-2" />
-                        </div>
-
-                        <!-- Domain Name -->
-                        <div class="mt-4">
-                            <x-input-label for="domain_name" :value="__('Domain Name')" />
-                            <x-text-input id="domain_name" class="block mt-1 w-full" type="text" name="domain_name"
-                                :value="old('domain_name')" required autofocus autocomplete="domain_name" oninput="this.value=this.value.toLowerCase()"
-                                onkeypress="return event.charCode != 32" />
-                            <x-input-error :messages="$errors->get('domain_name')" class="mt-2" />
                         </div>
 
                         <!-- Email Address -->
