@@ -6,27 +6,16 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 
-class DatabaseSeeder extends Seeder
+class TenantDatabaseSeeder extends Seeder
 {
     /**
      * Seed the application's database.
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-        Role::create(['name' => 'super-admin']);
         Role::create(['name' => 'admin']);
         Role::create(['name' => 'manager']);
         Role::create(['name' => 'editor']);
         Role::create(['name' => 'hr']);
-
-        $user = \App\Models\User::factory()->create([
-            'name' => 'Super Admin',
-            'email' => 'tanvirbhuiyann@gmail.com',
-            'email_verified_at' => now(),
-            'password' => bcrypt('123456789P@ssword'),
-        ]);
-
-        $user->assignRole('super-admin');
     }
 }

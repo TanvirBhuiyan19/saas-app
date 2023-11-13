@@ -11,6 +11,9 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     {{ __("You're logged in!") }}
                     <x-tenant-button href="{{route('tenants.index')}}">Tenant</x-tenant-button>
+                    @role('super-admin')
+                    <x-tenant-button href="{{route('users.index')}}">Users</x-tenant-button>
+                    @endrole
                 </div>
             </div>
         </div>

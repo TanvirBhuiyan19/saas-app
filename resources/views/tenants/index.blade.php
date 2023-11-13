@@ -127,7 +127,7 @@
                                         <div class="flex items-center justify-center">
                                             @foreach ($item->domains as $data)
                                                 <span class="font-small"><a href="{{ $data->domain ? $data->domain.':8000' : '' }}" target="_blank">{{ $data->domain ?? '' }}</a></span>
-                                                {{$loop->last ? '' : ','}}
+                                                {{$loop->last ? '' : ', '}}
                                             @endforeach
                                         </div>
                                     </td>

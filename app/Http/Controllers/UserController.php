@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\App;
+namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -18,7 +18,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::with('roles')->get();
-        return view('app.users.index', compact('users'));
+        return view('users.index', compact('users'));
     }
 
     /**
@@ -27,7 +27,7 @@ class UserController extends Controller
     public function create()
     {
         $roles = Role::all();
-        return view('app.users.create', compact('roles'));
+        return view('users.create', compact('roles'));
     }
 
     /**
@@ -65,7 +65,7 @@ class UserController extends Controller
     {
         if($user->id == 1) return redirect()->route('users.index');
         $roles = Role::all();
-        return view('app.users.edit', compact('user', 'roles'));
+        return view('users.edit', compact('user', 'roles'));
     }
 
     /**
